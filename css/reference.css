@@ -1,0 +1,69 @@
+
+p{
+    color:red;
+}
+.para{
+    color: blue;
+    background-color: turquoise;
+}
+#para3{
+    color: violet;
+    background-color: black;
+}
+.novice{
+    background-color: tomato;
+}
+
+.bg-primary{
+    background-color: green;
+    color: white;
+}
+
+p.bg-primary{
+    background-color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: yellow;
+}
+
+#div_para p{
+    background-color: red;
+    color: yellow;
+}
+#div_para p:first-child{
+    background-color: black;
+}
+
+#div_para p:last-child{
+    background-color: navy;
+}
+
+#div_para p:nth-child(6){
+    background-color: wheat;
+    color: tomato;
+}
+
+
+p[title=testing]{
+    background-color: tomato !important;
+    color: black !important;
+    font-size: 2rem;
+}
+
+input[type=text]{
+    display: block;
+}
+/* Anchor Tag */
+a{
+    color: white;
+}
+a:visited{
+    color: teal;
+}
+a:hover{
+    color: yellow;
+}
+a:active{
+    color: green;
+}
