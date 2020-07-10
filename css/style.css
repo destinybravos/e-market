@@ -60,3 +60,7 @@ a{
 #banner_detail{
     min-height: 500px;
 }
+
+#banner_detail aside{
+    display: inline-block;
+}
