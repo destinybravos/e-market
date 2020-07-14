@@ -1,0 +1,86 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+header{
+    background-color: white;
+    width: 100%;
+}
+#top_hd{
+    width: inherit;
+    max-width:1000px;
+    margin: auto;
+    display: flex;
+    border-bottom: thin solid #999999;
+}
+#top_hd aside:not(:nth-child(3)){
+    display: inline-flex;
+    min-height: 50px;
+    flex: 1;
+    padding: 10px 10px 0;
+    font-size: 0.8rem;
+    color: slategrey;
+}
+#top_hd aside:not(:nth-child(3)) i{
+    flex: 1;
+    margin-top: 15px;
+}
+#top_hd aside:not(:nth-child(3)) div{
+    flex: 5;
+    margin-top: 7px;
+}
+#top_hd aside:not(:nth-child(3)) div span{
+    font-weight: bold;
+    color: #444444;
+}
+#top_hd aside:nth-child(3){
+    flex: 2;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.3rem;
+    color: rgb(11, 35, 105);
+}
+
+/* MENU STYLES */
+#menu{
+    width: inherit;
+    max-width:1000px;
+    margin: auto;
+    padding-top: 15px;
+    padding-bottom: 10px;
+}
+#menu li{
+    display: inline-block;
+    list-style-type: none;
+}
+#menu li a{
+    text-decoration: none;
+    color: #444444;
+    padding: 10px;
+    display: inline-block;
+}
+#menu li.active a, #menu li a:hover{
+    color: rgb(75, 75, 161);
+    border-bottom: 2px solid rgb(75, 75, 161);
+}
+
+#menu li:last-child{
+    float: right;
+    margin-right: 10px;
+}
+#menu li:last-child a{
+    background-color:rgb(75, 75, 161);
+    color: white;
+    border-radius: 20px;
+    padding: 6px 15px;
+    border: none;
+}
+
+/* BANNER STYLES */
+#banner{
+    min-height: 500px;
+    background-image: url('../images/yamamoto.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
