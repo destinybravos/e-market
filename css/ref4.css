@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+header{
+    width: 100%;
+    }
+
+
+    #top_hd{
+        width: inherit;
+        max-width:1000px;
+        margin: auto;
+        display: flex;
+        border-bottom: thin solid #999999;
+    }
+    #top_hd aside:not(:nth-child(1)){
+        display: inline-flex;
+        min-height: 50px;
+        flex: 1;
+        padding: 10px 10px 0;
+        font-size: 0.8rem;
+        color: slategrey;
+    }
+    #top_hd aside:not(:nth-child(1)) i{
+        flex: 1;
+        margin-top: 15px;
+    }
+    #top_hd aside:not(:nth-child(1)) div{
+        flex: 5;
+        margin-top: 7px;
+    }
+    #top_hd aside:not(:nth-child(1)) div span{
+        font-weight: bold;
+        color: #444444;
+    }
+    #top_hd aside:nth-child(1){
+        flex: 2;
+        text-align: center;
+        padding: 10px;
+        font-size: 1.3rem;
+        color: rgb(11, 35, 105);
+    }
+ 
+ #navbar{
+     background-color: lightgreen;
+     height: 30px;
+ }
+
+ #menu{
+    width: inherit;
+    max-width:1000px;
+    margin: auto;
+    padding-top: 0px;
+    padding-bottom: 15px;
+}
+#menu li{
+    display: inline-block;
+    list-style-type: none;
+}
+#menu li a{
+    text-decoration: none;
+    color: #000000;
+    padding: 10px;
+    display: inline-block;
+}
+#menu li:last-child{
+    float: right;
+    margin-right: 10px;
+}
+#menu li:last-child a{
+    background-color:green;
+    color: white;
+    
+    padding: 6px 15px;
+    border: none;
+}
+
+#banner{
+    min-height: 500px;
+    background-image: url('../images/bg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+        align-items: center;
+}
+
+#banner aside{
+    padding: 200px;
+}
+
+
+#one{
+    background-color: tomato;
+}
+#two{
+    background-color: lightgreen;}
+#footer{
+    display: flex;
+    }
+    
+#banner button{
+    margin: 15px auto;
+    background-color: green;
+    padding: 8px 15px;
+    border: 2px;
+    border-radius: 20px;
+    color: white;
+}
