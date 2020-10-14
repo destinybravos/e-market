@@ -1,0 +1,77 @@
+.bg-primary-blue{
+    background-color: #190638;
+}
+.inblock{
+    display: inline-block !important;
+}
+.nav-item a{
+    font-size: 0.8rem;
+    color: #18365a;
+    padding: 0.5rem 1rem !important;
+    font-weight: bold;
+}
+.nav-item a:hover{
+    background-color:#fa7821;
+    color: white;
+}
+
+@media screen and (max-width:767px){
+    #top_search{
+        display: none;
+    }
+
+}
+
+.carousel-item, .carousel-inner{
+    height: 300px;
+    background-color: lawngreen;
+}
+
+#slide1{
+    background-image: url('../images/slide1.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#slide2{
+    background-image: url('../images/slide2.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#slide3{
+    background-image: url('../images/slide3.jpg');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#side_slide div.card-body{
+    height: 145px;
+}
+#side_slide div.row:first-child{
+    margin-bottom: 10px;
+}
+
+#side_slide div.row:nth-child(1) div.col-6:nth-child(1) div.card-body{
+    background-image: url('../images/1.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#side_slide div.row:nth-child(1) div.col-6:nth-child(2) div.card-body{
+    background-image: url('../images/2.webp');
+    background-size: cover;
+    background-position: center;
+}
+
+#side_slide div.row:nth-child(2)  div.col-6:nth-child(1) div.card-body{
+    background-image: url('../images/3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+#side_slide div.row:nth-child(2)  div.col-6:nth-child(2) div.card-body{
+    background-image: url('../images/4.webp');
+    background-size: cover;
+    background-position: center;
+}
