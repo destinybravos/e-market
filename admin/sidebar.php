@@ -1,6 +1,7 @@
 <?php
     if(isset($_SESSION['active_user']) and $_SESSION['active_user'] != ''){
-        
+        // Do more validation here
+        $userid = $_SESSION['active_user'];
     }else{
         header('location:login.php');
     }
