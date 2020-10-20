@@ -1,11 +1,20 @@
 #sidebar{
-    /* background-color: #3a3030; */
+    background-color: #354052;
     height: 100vh;
     width: 250px;
     position: fixed;
     left: 0;
     transition: left linear 0.2s;
     -webkit-transition: left linear 0.2s;
+    z-index: 3;
+}
+#overlay{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    position: fixed;
+    z-index: 2;
+    display: none;
 }
 #main{
     height: 2000px;
@@ -35,4 +44,60 @@
     #main{
         margin-left: 0;
     }
+    .open-nav{
+        left: 0 !important;
+    }
 }
+
+#admin_detail a{
+    color: rgb(163, 162, 162);
+    font-size: 1.2rem;
+}
+#ingroup{
+    max-width: 80%;
+}
+
+#ingroup input{
+    height: 1.5rem;
+    border: none;
+    color: black;
+    border-radius: 20px !important;
+    background-color: #425274;
+}
+#ingroup span.input-group-text{
+    background-color: transparent;
+    border: none;
+    color: rgb(163, 162, 162);
+}
+
+#side_menu .navbar-nav{
+    width: 100%;
+}
+
+#side_menu a.nav-link.active{
+    background-color: #3f5378;
+    color: rgb(233, 232, 232);
+    border-left:3px solid rgb(233, 232, 232);
+}
+#side_menu a.nav-link{
+    box-shadow: 0 0 1px #1d232c;
+    color: rgb(163, 162, 162);
+    border-left:3px solid transparent;
+}
+#side_menu a.nav-link:hover{
+    background-color: #3f5378;
+    color: rgb(233, 232, 232);
+    border-left:3px solid rgb(233, 232, 232);
+}
+
+/* Login Style */
+#form_container{
+    background-color: #354052;
+    border-radius: 6px;
+    box-shadow: 0 0 2px rgb(17, 17, 17);
+    min-height: 200px;
+    width: 400px;
+    max-width: 90%;
+    margin: auto;
+}
+
