@@ -1,20 +1,25 @@
 <?php
     session_start();
-    // Dummy Data
-    $dummyid = 'db4bravos@yahoo.com';
-    $dummypass = '12345';
 
+    // Include the server configuration
+    include_once "server_config.php";
 
     // Recieved Data
     $userid = $_POST['user_id'];
-    $pass = $_POST['password'];
+    $pass = md5($_POST['password']);
     $rem = $_POST['remember'];
 
     // Initialize a response array
     $response = [];
 
-    if($userid === $dummyid and $pass === $dummypass){
-        $_SESSION['active_user'] = $dummyid;
+    // Check if the user exists
+    $check_user = $conn->query("SELECT * FROM tbl_users WHERE (email='$userid' OR phone='$userid') AND password='$pass'");
+
+    // Check the number of rows/records
+    $num_records = $check_user->num_rows;
+
+    if($num_records > 0){
+        $_SESSION['active_user'] = $userid;
         $response = [
             'status' => 'success',
             'message' => 'Login Successfull'

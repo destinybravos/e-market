@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../bootstrap4/css/bootstrap.css">
     <link rel="stylesheet" href="../fa/css/all.css">
     <link rel="stylesheet" href="css/admin_style.css">
+    <!-- Scripts -->
+    <script src="../js/jquery.js"></script>
+    <script src="../bootstrap4/js/bootstrap.bundle.js"></script>
 </head>
 <body>
 
@@ -15,7 +18,7 @@
 <div class="" style="margin:3vh auto; text-align:center;">
     <img src="../images/favicon.png" alt="icon" style="max-height:50px; margin:30px auto;">
     <div id="form_container" class="p-4">
-        <form class="form text-left text-light">
+        <form class="form text-left text-light" id="frm_register">
             <div class="form-group">
                 <label for="fname">
                     <i class="fa fa-user"></i> Firstname
@@ -49,7 +52,7 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-primary">
-                    <i class="fa fa-user-plus"></i>
+                    <i class="fa fa-user-plus" id="sign_icon"></i>
                     Sign Up
                 </button>
             </div>
@@ -60,9 +63,67 @@
     </div>
 </div>
 
+<!-- Modal Div -->
+<div class="modal fade" id="error_modal">
+    <div class="modal-dialog modal-sm modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center" style="font-size:1.3rem;">
+                
+            </div>
+        </div>
+    </div>
+</div>
 
-<script src="../js/jquery.js"></script>
-<script src="../bootstrap4/js/bootstrap.bundle.js"></script>
 <script src="js/admin_script.js"></script>
+<script>
+
+    $('#frm_register').on('submit', function(e){
+        e.preventDefault();
+
+        // Build the Data Object
+        let data = {
+            firstname: $('#fname').val(),
+            email: $('#email').val(),
+            phone: $('#phone').val(),
+            password: $('#pass').val()
+        }
+
+        $.ajax({
+            type: 'post',
+            url: 'backend/add_user.php',
+            data: data,
+            dataType: 'json',
+            beforeSend: function(){
+                $('#sign_icon').removeClass('fa-user-plus');
+                $('#sign_icon').addClass('fa-spinner fa-pulse');
+            },
+            success: function(res){
+                if(res.status == 'success'){
+                    location.href = 'login.php';
+                }else{
+                    // Build the error message into a variable
+                    let errorMsg = `<i class="fa fa-times-circle text-danger"></i>
+                            ${res.msg}
+                        `;
+                    // Before the modal shows up, Insert the error message into the modal body
+                    $('#error_modal').on('show.bs.modal', function(){
+                        $('#error_modal .modal-body').html(errorMsg);
+                    });
+                    // Display the modal
+                    $('#error_modal').modal('show')
+                }
+            },
+            error: function(xhr, status, message){
+                console.log(status, message);
+            },
+            complete: function(){
+                $('#sign_icon').addClass('fa-user-plus');
+                $('#sign_icon').removeClass('fa-spinner fa-pulse');
+            }
+        });
+    })
+
+
+</script>
 </body>
 </html>

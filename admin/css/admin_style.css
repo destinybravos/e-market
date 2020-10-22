@@ -101,3 +101,15 @@
     margin: auto;
 }
 
+/* Submenu */
+#submenu{
+    background-color: #3f5378;
+}
+#submenu li{
+    list-style-type: none;
+}
+#submenu a.nav-link{
+    border: none !important;
+    box-shadow: none !important;
+}
+

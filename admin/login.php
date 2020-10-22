@@ -55,7 +55,7 @@
     <div class="modal-dialog modal-sm modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body text-center">
-                <span>
+                <span style="font-size:1.3rem;">
                     <i class="fa fa-times-circle text-danger"></i>
                     Invalid Login Details
                 </span>
