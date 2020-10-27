@@ -30,11 +30,5 @@
         possimus non libero quidem ex corporis labore, incidunt doloribus maxime consequuntur ad quas odio.    
     </p>
 
-    
-    <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit neque 
-        voluptates ea quia placeat vitae ipsa 
-        possimus non libero quidem ex corporis labore, incidunt doloribus maxime consequuntur ad quas odio.    
-    </p>
 </body>
 </html>
