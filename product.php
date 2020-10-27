@@ -16,8 +16,6 @@
         include_once "utility/page_header.php";
         include_once "utility/banner.php";
     ?>
-    
-    <h2>Products</h2>
 
     <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident totam illum, iusto sapiente maiores
@@ -25,7 +23,39 @@
         asperiores, recusandae, earum dolor repellendus ipsum neque aliquid. Quae nemo asperiores vero cumque magnam.
     </p>
 
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quas velit porro, aliquam, 
+        hic repellat minus non iure, 
+        incidunt nesciunt accusamus dignissimos reiciendis! Tempore consequuntur saepe ea, est explicabo quos.
+    </p>
 
+
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quas velit porro, aliquam, 
+        hic repellat minus non iure, 
+        incidunt nesciunt accusamus dignissimos reiciendis! Tempore consequuntur saepe ea, est explicabo quos.
+    </p>
+
+    
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quas velit porro, aliquam, 
+        hic repellat minus non iure, 
+        incidunt nesciunt accusamus dignissimos reiciendis! Tempore consequuntur saepe ea, est explicabo quos.
+    </p>
+
+    
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quas velit porro, aliquam, 
+        hic repellat minus non iure, 
+        incidunt nesciunt accusamus dignissimos reiciendis! Tempore consequuntur saepe ea, est explicabo quos.
+    </p>
+
+    
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quas velit porro, aliquam, 
+        hic repellat minus non iure, 
+        incidunt nesciunt accusamus dignissimos reiciendis! Tempore consequuntur saepe ea, est explicabo quos.
+    </p>
     <!-- Scripts -->
     <script src="js/jquery.js"></script>
     <script src="bootstrap4/js/bootstrap.bundle.js"></script>
