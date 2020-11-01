@@ -16,8 +16,12 @@
         include_once "utility/page_header.php";
         include_once "utility/banner.php";
     ?>
-    
-    <h2>Products</h2>
+
+    <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Provident totam illum, iusto sapiente maiores
+         aspernatur fuga 
+        asperiores, recusandae, earum dolor repellendus ipsum neque aliquid. Quae nemo asperiores vero cumque magnam.
+    </p>
 
     <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quas velit porro, aliquam, 
