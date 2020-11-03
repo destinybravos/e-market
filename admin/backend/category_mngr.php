@@ -51,6 +51,20 @@
                 'message' => 'An error occured! ' . $conn->error
             ];
         }
+    }elseif($action == 'delete'){
+        $category = $_POST['category'];
+        $delete = $conn->query("DELETE FROM tbl_category WHERE category='$category'");
+        if($delete){
+            $response = [
+                'status' => 'success',
+            ];
+        }else{
+            $response = [ 
+                'status' => 'error',
+                'message' => 'An error occured! ' . $conn->error
+            ];
+        }
+        
     }
 
 
