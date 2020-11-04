@@ -43,7 +43,7 @@
                 </label>
                 <div class="input-group">
                     <input type="password" id="pass" name="pass" class="form-control" required>
-                    <div class="input-group-append">
+                    <div class="input-group-append" style="cursor:pointer;" id="pass_toggler">
                         <span class="input-group-text">
                             <i class="fa fa-eye"></i>
                         </span>
@@ -121,6 +121,18 @@
                 $('#sign_icon').removeClass('fa-spinner fa-pulse');
             }
         });
+    })
+
+    $('#pass_toggler').on('click', function () {
+        $curtype = $('#pass').attr('type');
+        if($curtype === 'password'){
+            $('#pass').attr('type', 'text');
+            $('#pass_toggler span').html('<i class="fa fa-eye-slash"></i>')
+        }else{
+            $('#pass').attr('type', 'password');
+            $('#pass_toggler span').html('<i class="fa fa-eye"></i>') 
+        }
+        console.log($curtype);
     })
 
 
