@@ -51,6 +51,19 @@
                 'message' => 'An error occured! ' . $conn->error
             ];
         }
+    }elseif($action == 'delete'){
+        $category = $_POST['category'];
+        $delete = $conn->query("DELETE FROM tbl_category WHERE category='$category'");
+        if($delete){
+            $response = [
+                'status' => 'success',
+            ];
+        }else{
+            $response = [ 
+                'status' => 'error',
+                'message' => 'An error occured! ' . $conn->error
+            ];
+        }
     }elseif($action == 'fetch_category'){
         $categories = $conn->query("SELECT * FROM tbl_category");
         if($categories){
@@ -73,7 +86,6 @@
             ];
         }
     }
-
 
 
     // Return  the response array as json
