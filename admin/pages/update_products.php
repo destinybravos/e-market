@@ -1,9 +1,7 @@
 <div class="container pt-4">
 
-<div class="alert alert-info">
-    <strong>
-        <span id="counter"></span> product in store.
-    </strong>
+<div class="d-none alert alert-info">
+    
 </div>
 
 <div class="container">
@@ -14,12 +12,12 @@
 
                 <div class="card-header">
                     <strong class="card-title">
-                        <i class="fa fa-plus"></i> Add a Product
+                        <i class="fa fa-plus"></i> Update Product
                     </strong>
                 </div>
 
                 <div class="card-body">
-                    <form id="frm_add_product" enctype="multipart/form-data">
+                    <form id="frm_update_product">
                         <div class="form-group">
                             <label for="product">Product</label>
                             <input type="text" placeholder="Enter product name" class="form-control" name="product" id="product" required autofocus>
@@ -27,7 +25,6 @@
                         <div class="form-group">
                             <label for="cat">Category</label>
                             <select name="cat" id="cat"  class="form-control" required>
-                                <option value="df">Select Category</option>
                             </select>
                         </div>
                         <div class="form-group row">
@@ -49,12 +46,13 @@
                         
                         <div class="form-group">
                             <label for="image">Product Image</label>
+                            <img src="" alt="Image Not found" style="max-width:100%;" id="pro_image_preview">
                             <input type="file" name="image" id="image" class="form-control">
                         </div>
 
                         <div class="form-group">
                             <button class="btn btn-primary btn-sm">
-                                <i class="fa fa-save"></i> Save Product
+                                <i class="fa fa-sync-alt"></i> Update Product Info
                             </button>
                         </div>
                     </form>
@@ -97,6 +95,27 @@
 
 
 <script>
+    var catid;
+    $url = new URL(window.location.href);
+    $id = $url.searchParams.get('id')
+    console.log($id);
+        $.ajax({
+            type: 'post',
+            url: './backend/product_mngr.php',
+            data: {action:'view', id:$id},
+            dataType: 'json',
+            success: function(response){
+                if(response.status == 'success'){
+                    $('#product').val(response.product.product);
+                    $('#price').val(response.product.price);
+                    $('#discount').val(response.product.discount);
+                    $('#desc').val(response.product.description);
+                    $('#pro_image_preview').attr('src', '../images/products/' + response.product.image);
+                    catid = response.product.category_id;
+                }
+            }
+        });
+    
 
     function fetchProduct(){
         $.ajax({
@@ -119,15 +138,9 @@
                                             <p>
 
                                             </p>
-                                            <span class="float-right py-1 px-2 del_product" role="button">
-                                                <i class="fas fa-trash text-danger"></i>
-                                            </span>
                                             <a href="?id=${list.id}#update_products" class="float-right py-1 px-2 update_product" role="button">
                                                 <i class="fas fa-edit text-primary"></i>
                                             </a>
-                                            <span class="float-right py-1 px-2 view_product" role="button">
-                                                <i class="fas fa-eye text-success"></i>
-                                            </span>
                                         </div>
                                     </div>
                                 </li>`;
@@ -152,7 +165,11 @@
                     // Loading Category 2 with the Array Response by Looping through the array
                     $html = '<option value="">Select Category</option>';
                     response.cat_list.forEach(function(list){
-                        $html += `<option value="${list.id}">${list.category}</option>`;
+                        if(catid == list.id){
+                            $html += `<option value="${list.id}" selected>${list.category}</option>`;
+                        }else{
+                            $html += `<option value="${list.id}">${list.category}</option>`;
+                        }
                     });
                     $('#cat').html($html);
                     // console.log(response.cat_list, response.cat_list_html);
@@ -162,10 +179,15 @@
     }
     fetchCategory();
 
-    // Submit Product Infomation
-    $('#frm_add_product').on('submit', function(e){
+    $('#frm_update_product').on('submit', function(e){
         e.preventDefault();
-        let image_file = document.getElementById('image').files[0];
+        let image_file;
+        console.log(document.getElementById('image').files);
+        if(document.getElementById('image').files.length > 0){
+            image_file = document.getElementById('image').files[0];
+        }else{
+            image_file = '';
+        }
         // instantiate an object of  the class FormData()
         let form_data = new FormData();
         // Append the data to the form data object
@@ -175,7 +197,8 @@
         form_data.append('discount',  $('#discount').val());
         form_data.append('desc',  $('#desc').val());
         form_data.append('category',  $('#cat').val());
-        form_data.append('action', 'save');
+        form_data.append('id', $id);
+        form_data.append('action', 'update');
 
         $.ajax({
             type: 'post',
@@ -188,122 +211,14 @@
                 if(response.status == 'success'){
                     $('#frm_add_product').trigger('reset');
                     alert(response.message)
-                    fetchProduct();
+                    window.location.href = 'http://localhost/e-market/admin/index.php?#products'
                 }else{
                     alert(response.message)
                 }
             }
         })
 
-    });
-
-    $('#complete_list').on('click', '.view_product', function () {
-        $id = $(this).parent('div').parent('div').parent('li').attr('id');
-        $.ajax({
-            type: 'post',
-            url: './backend/product_mngr.php',
-            data: {action:'view', id:$id},
-            dataType: 'json',
-            success: function(response){
-                if(response.status == 'success'){
-                    console.log(response);
-                    $('#customModal').on('show.bs.modal', function(){
-                        $('#customModal .modal-body').addClass('p-0')
-                        $('#customModal .modal-body').html(`
-                            <div class="card">
-                                <img src="../images/products/${response.product.image}" class="card-img-top img-responsive" />
-                                <div class="card-body p-0 text-left">
-                                    <ul class="list-group p-0">
-                                        <li class="list-group-item">
-                                            <strong>Product Name:</strong> ${response.product.product}
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>Price:</strong> ${response.product.price}
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>Discount:</strong> ${response.product.discount}
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>Description:</strong> ${response.product.description}
-                                        </li>
-                                        <li class="list-group-item">
-                                            <strong>Category:</strong> ${response.category}
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        `);
-                    });
-                    $('#customModal').modal('show');
-                }else{
-                    $('#customModal').on('show.bs.modal', function(){
-                        $('#customModal .modal-body').html(`
-                            <i class="fa fa-times-circle text-danger" style="font-size:1.3rem"></i>
-                            <strong>${response.message}</strong>
-                        `);
-                    });
-                    $('#customModal').modal('show');
-                }
-            }
-        });
-    });
-
-    $('#complete_list').on('click', '.del_product', function () {
-        $id = $(this).parent('div').parent('div').parent('li').attr('id');
-        $html = `
-            <i class="fa fa-times-circle fa-2x text-danger"></i>
-            <h4>Are you sure you want to delete this product?</h4>
-            <button class="btn btn-primary btn-sm" data-dismiss="modal">
-                <i class="fa fa-times-circle"></i> Cancel
-            </button>
-            <input type="hidden" id="category" value="${$id}">
-            <button class="btn btn-danger btn-sm" id="confirmDelete">
-                <i class="fa fa-trash"></i> Delete
-            </button>
-        `;
-
-        $('#customModal').on('show.bs.modal', function(){
-            $('#customModal .modal-body').html($html);
-        });
-        $('#customModal').modal('show');
-    });
-
-    function deleteProduct(proId) {
-        $.ajax({
-            type: 'post',
-            url: './backend/product_mngr.php',
-            data: {action:'delete', id:proId},
-            dataType: 'json',
-            success: function(response){
-                if(response.status === 'success'){
-                    $('#customModal').on('show.bs.modal', function(){
-                        $('#customModal .modal-body').html(`
-                            <i class="fa fa-check-circle text-success" style="font-size:1.3rem"></i>
-                            <strong>Product deleted successfully</strong>
-                        `);
-                    });
-                    $('#customModal').modal('show');
-                    fetchProduct();
-                }else{
-                    $('#customModal').on('show.bs.modal', function(){
-                        $('#customModal .modal-body').html(`
-                            <i class="fa fa-times-circle text-danger" style="font-size:1.3rem"></i>
-                            <strong>${response.message}</strong>
-                        `);
-                    });
-                    $('#customModal').modal('show');
-                }
-            }
-        });
-    }
-
-    $('.modal-body').on('click', '#confirmDelete', function(){
-        $id = $(this).siblings('input').val();
-        $('#customModal').modal('hide')
-        $('#customModal').on('hidden.bs.modal', function(){
-            deleteProduct($id)
-        });
-    });
+    })
 
 
 </script>
