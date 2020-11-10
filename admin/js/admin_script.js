@@ -17,7 +17,7 @@ $(document).ready(function(){
         page2load = 'dashboard';
     }else{
         for (i = 1; i < current_page.length ; i++) {
-            page2load += current_page[i];         
+            page2load += current_page[i];        
         }
     }
 

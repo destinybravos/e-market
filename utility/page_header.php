@@ -81,7 +81,7 @@
     <div class="container p-0">
         <nav class="navbar navbar-expand-md p-0">
             <div class="navbar-collapse collapse" id="main_nav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav" id="cat_menu">
                     <li class="nav-item">
                         <a href="#" class="nav-link">Computers and Accessories</a>
                     </li>
