@@ -16,7 +16,9 @@
                     <i class="fa fa-bars" style="font-size:1.3rem;"></i>
                 </div>
 
+                <a href="index.php" style="text-decoration:none;">
                 <img src="images/logo.png" alt="logo" style="max-height:40px; max-width:100%; vertical-align:middle;">
+                </a>
 
                 <div class="float-right d-block d-md-none" style="text-align:right;font-size:1.3rem;">
                     <button class="btn btn-sm">
@@ -36,7 +38,7 @@
                 <form name="navbar_search">
                     <div class="input-group">
                         <input class="form-control" placeholder="search for a product, brand and category" type="search" name="input_search" id="input_search">
-                        <div class="input-group-append" style="cursor:pointer;">
+                        <div class="input-group-append" role="button" id="search_btn">
                             <span class="input-group-text">
                                 <i class="fa fa-search"></i>
                             </span>

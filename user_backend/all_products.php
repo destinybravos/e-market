@@ -5,7 +5,15 @@
 
     $product_list = '';
 
-    $query = $conn->query("SELECT * FROM tbl_products");
+    // Determine the SQL query based on available criterias
+    if(isset($_POST['category_id']) and $_POST['category_id'] != ''){
+        $category = $_POST['category_id'];
+        $sql_statement = "SELECT * FROM tbl_products WHERE category_id='$category'";
+    }else{
+        $sql_statement = "SELECT * FROM tbl_products";
+    }
+
+    $query = $conn->query($sql_statement);
 
     if($query and $query->num_rows > 0){
         while ($products = $query->fetch_array()) {

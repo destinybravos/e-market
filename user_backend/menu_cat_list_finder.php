@@ -14,10 +14,14 @@
                             </li>';
         }
     }
-
+    
     $cat_list .= '<li class="nav-item">
-                    <a href="#" class="nav-link">Other Categories</a>
+                    <a href="products.php" class="nav-link">All Products</a>
                 </li>';
+
+    // $cat_list .= '<li class="nav-item">
+    //                 <a href="#" class="nav-link">Other Categories</a>
+    //             </li>';
 
     echo $cat_list
 
