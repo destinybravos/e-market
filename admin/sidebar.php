@@ -67,13 +67,13 @@ include_once "backend/server_config.php";
                     <ul class="collapse" id="submenu">
                         <li class="nav-item">
                             <a href="#" class="nav-link pagenav" id="category">
-                                <i class="fa fa-store mr-2"></i>
+                                <i class="fa fa-layer-group mr-2"></i>
                                 Manage Category
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link pagenav" id="products">
-                                <i class="fa fa-store mr-2"></i>
+                                <i class="fa fa-tv mr-2"></i>
                                 Manage Products
                             </a>
                         </li>

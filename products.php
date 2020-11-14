@@ -14,26 +14,20 @@
 <body class="bg-light">
     <?php
         include_once "utility/page_header.php";
-        include_once "utility/banner.php";
     ?>
     
-    <div class="container">
-        <div class="row my-4">
-            <div class="col-12 bg-dark text-light rounded-lg">
-                <h4 class="py-1 px-3">
-                    Recently Added Products
-                </h4>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-3">
+                dfsdsd
             </div>
+            <div class="col-md-9">
+                <div class="row" id="all_products">
+
+                </div>
+            </div>        
         </div>
-
-        <div class="row" id="products_card_list">
-            
-        </div>
-
-
-
     </div>
-
 
     <!-- Scripts -->
     <script src="js/jquery.js"></script>

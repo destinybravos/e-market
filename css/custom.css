@@ -75,3 +75,15 @@
     background-size: cover;
     background-position: center;
 }
+
+/* Product Image Card */
+.card-image{
+    overflow: hidden;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
+.card-image img{
+    max-width: 100%;
+}
