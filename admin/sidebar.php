@@ -50,7 +50,7 @@ include_once "backend/server_config.php";
     </div>
 
     <!-- Navigation Menu -->
-    <div id="side_menu">
+    <div id="side_menu" style="overflow-y:auto; max-height:300px;">
         <nav class="navbar p-0">
             <ul class="navbar-nav">
                 <li class="nav-item">

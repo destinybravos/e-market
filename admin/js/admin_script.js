@@ -21,6 +21,8 @@ $(document).ready(function(){
         }
     }
 
+
+
     
 
     
@@ -48,6 +50,8 @@ $(document).ready(function(){
     // Page Navigation onclick of pagenav
     $('.pagenav').on('click', function(){
         let clickedPage = $(this).attr('id');
+        $('.nav-item a').removeClass('active');
+        $(this).addClass('active');
         loadPage(clickedPage);
     });
 
