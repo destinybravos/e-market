@@ -55,5 +55,10 @@ $(document).ready(function(){
         loadPage(clickedPage);
     });
 
+    // let reader = new FileReader();
+    // reader.onload();
+
+    // reader.readAsDataURL()
+
 
 });
