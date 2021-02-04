@@ -15,6 +15,7 @@ include_once "backend/server_config.php";
         $phone = $user_detail['phone'];
         $email = $user_detail['email'];
         $dob = $user_detail['dob'];
+        $photo = $user_detail['photo'];
         
     }else{
         header('location:login.php');
@@ -29,7 +30,7 @@ include_once "backend/server_config.php";
     </div>
     <!-- Admin Detail -->
     <div class="my-4 py-2 text-center text-light" id="admin_detail">
-        <img src="img/default.png" alt=" " class="rounded-circle bg-light" style="max-width:110px">
+        <img src="img/profile/<?php echo $photo ?>" alt=" " class="rounded-circle bg-light" style="max-width:110px" id="profile_pics">
         <span class="d-block my-2">
             <?php echo $firstname . ' ' . $lastname ?>
         </span>
@@ -50,7 +51,7 @@ include_once "backend/server_config.php";
     </div>
 
     <!-- Navigation Menu -->
-    <div id="side_menu">
+    <div id="side_menu" style="overflow-y:auto; max-height:300px;">
         <nav class="navbar p-0">
             <ul class="navbar-nav">
                 <li class="nav-item">
